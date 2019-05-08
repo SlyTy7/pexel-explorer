@@ -1,8 +1,10 @@
 .photo-tile-container {
   width: 25%;
+  max-width: 250px;
 }
 .photo-tile {
   margin: 10px;
+  max-width: 250px;
   cursor: pointer;
 }
 .photo-container {
@@ -13,9 +15,24 @@
   background-color: #ffffff;
   padding: 10px;
   padding-top: 0;
+  height: 40px;
 }
 .caption {
   text-align: center;
   font-size: 15px;
   font-family: 'Pangolin', cursive;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 767px) {
+  .photo-tile-container {
+    width: 50%;
+  }
+}
+@media (max-width: 424px) {
+  .photo-tile-container {
+    width: 100%;
+  }
 }

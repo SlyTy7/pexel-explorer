@@ -15,8 +15,6 @@ class Photo extends React.Component {
     let photoClicked = e.currentTarget;
     let photoBounds = photoClicked.getBoundingClientRect();
 
-    console.log(photoBounds);
-
     this.setState({
       oldPosition: photoBounds,
       hidden: true

@@ -1,7 +1,8 @@
 .tile-container {
+  margin-top: 50px;
   min-height: 600px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px;
+  justify-content: center;
 }

@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const url = "https://api.pexels.com/v1/curated?per_page=15&page=1";
+    const url = "https://api.pexels.com/v1/curated?per_page=16&page=1";
     const key = { headers : {"Authorization": "563492ad6f91700001000001a6af389b2ac047ac84acbcadb9604d40"} };
 
     fetch(url, key).then( res => res.json() )
