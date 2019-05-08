@@ -7,34 +7,3 @@
   min-height: 150vh;
   padding: 50px 20px;
 }
-.hidden {
-  display: none;
-}
-.tile-container {
-  min-height: 600px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 50px;
-}
-.photo-tile-container {
-  width: 25%;
-}
-.photo-tile {
-  margin: 10px;
-  cursor: pointer;
-}
-.photo-container {
-  background-color: #ffffff;
-  padding: 10px;
-}
-.caption-container {
-  background-color: #ffffff;
-  padding: 10px;
-  padding-top: 0;
-}
-.caption {
-  text-align: center;
-  font-size: 15px;
-  font-family: 'Pangolin', cursive;
-}

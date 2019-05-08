@@ -1,0 +1,21 @@
+.photo-tile-container {
+  width: 25%;
+}
+.photo-tile {
+  margin: 10px;
+  cursor: pointer;
+}
+.photo-container {
+  background-color: #ffffff;
+  padding: 10px;
+}
+.caption-container {
+  background-color: #ffffff;
+  padding: 10px;
+  padding-top: 0;
+}
+.caption {
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Pangolin', cursive;
+}
