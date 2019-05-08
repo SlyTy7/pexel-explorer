@@ -14,10 +14,18 @@ class Photo extends React.Component {
   handleClick = (e) => {
     let photoClicked = e.currentTarget;
     let photoBounds = photoClicked.getBoundingClientRect();
+    let newPositionStyle = {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      maxWidth: "500px"
+    }
 
     this.setState({
       oldPosition: photoBounds,
-      hidden: true
+      newPositionStyle: newPositionStyle,
+      open: ( this.state.open ? false : true )
     })
   }
 
@@ -29,13 +37,13 @@ class Photo extends React.Component {
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat"
     }
-    const tileStyle = {
-      display: ( this.state.hidden ? 'none' : 'block' )
-    }
+    let { open, newPositionStyle, oldPosition } = this.state;
+
+    console.log(oldPosition);
 
     return (
       <div className="photo-tile-container">
-        <div className="photo-tile" style={ tileStyle } onClick={ this.handleClick }>
+        <div className="photo-tile" style={( open ? newPositionStyle : {} )} onClick={ this.handleClick }>
           <div className="photo-container">
             <div className="photo" style={ imageStyle }>
             </div>

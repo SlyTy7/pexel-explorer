@@ -6,6 +6,7 @@
   margin: 10px;
   max-width: 250px;
   cursor: pointer;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
 }
 .photo-container {
   background-color: #ffffff;
