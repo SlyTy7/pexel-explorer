@@ -1,18 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 .App {
   background: #1e7f9a;
-  height: 100vh;
+  min-height: 150vh;
+  padding: 50px 20px;
 }
-
-.app-container {
-  min-height: 300px;
-  max-width: 600px;
+.hidden {
+  display: none;
+}
+.tile-container {
+  min-height: 600px;
   width: 100%;
-  background: #ffffff;
-  border-radius: 5px;
-  box-shadow: 2px 3px rgba(0, 0, 0, 0.15);
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+.photo-tile-container {
+  width: 25%;
+}
+.photo-tile {
+  margin: 10px;
+  cursor: pointer;
+}
+.photo-container {
+  background-color: #ffffff;
+  padding: 10px;
+}
+.caption-container {
+  background-color: #ffffff;
+  padding: 10px;
+  padding-top: 0;
+}
+.caption {
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Pangolin', cursive;
 }
