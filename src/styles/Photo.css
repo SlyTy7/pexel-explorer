@@ -2,29 +2,33 @@
   width: 25%;
   max-width: 250px;
 }
-.photo-tile {
-  margin: 10px;
+.photo-tile-wrapper {
   max-width: 250px;
+  width: 100%;
+}
+.photo-tile {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
   cursor: pointer;
+  min-height: 250px;
+  padding: 10px;
+  height: 100%;
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.15);
-}
-.photo-container {
   background-color: #ffffff;
-  padding: 10px;
 }
-.caption-container {
-  background-color: #ffffff;
-  padding: 10px;
-  padding-top: 0;
-  height: 40px;
+.open-photo-tile {
+
+}
+.photo {
+  height: 100%;
+  flex: 1;
 }
 .caption {
+  padding: 10px;
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
   font-family: 'Pangolin', cursive;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 @media (max-width: 767px) {

@@ -7,49 +7,82 @@ class Photo extends React.Component {
     super(props);
 
     this.state = {
-      hidden: false
+      open: false
     }
   }
 
   handleClick = (e) => {
     let photoClicked = e.currentTarget;
-    let photoBounds = photoClicked.getBoundingClientRect();
-    let newPositionStyle = {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      maxWidth: "500px"
+    let currentPosition = photoClicked.getBoundingClientRect();
+    let currentPositionObject = {
+      top: currentPosition.top,
+      left: currentPosition.left,
+      width: currentPosition.width,
+      height: currentPosition.height
     }
 
-    this.setState({
-      oldPosition: photoBounds,
-      newPositionStyle: newPositionStyle,
-      open: ( this.state.open ? false : true )
-    })
+    if(!this.state.open){
+      const openStyle = {
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%,-50%) scale(2)",
+        position: "fixed",
+        zIndex: 200
+      }
+
+      this.setState({
+        style: openStyle,
+        prevPosition: currentPositionObject,
+        open: true
+      })
+    } else {
+      const closedStyle = {}
+
+      this.setState({
+        style: closedStyle,
+        prevPosition: currentPositionObject,
+        open: false
+      })
+    }
+  }
+
+  componentDidUpdate = () => {
+    const prevPositionObject = this.state.prevPosition;
+    const thisComponent = this.el;
+    const currentPosition = thisComponent.getBoundingClientRect();
+    const currentPositionObject = {
+      top: currentPosition.top,
+      left: currentPosition.left,
+      width: currentPosition.width,
+      height: currentPosition.height
+    }
+    /*
+    console.log(currentPositionObject);
+    console.log(prevPositionObject);
+    */
+    const deltaX = prevPositionObject.left - currentPositionObject.left;
+    const deltaY = prevPositionObject.top - currentPositionObject.top;
+    const deltaW = prevPositionObject.width / currentPositionObject.width;
+    const deltaH = prevPositionObject.height / currentPositionObject.height;
+
+    console.log(`transform: translate(${deltaX}px, ${deltaY}px) scale(${deltaW}, ${deltaH});`)
   }
 
   render() {
-    const imageStyle = {
-      height: "150px",
-      width: "100%",
+    let { open } = this.state;
+
+    const thumbnailStyles = {
       background: "url(" + this.props.photo.src.portrait + ")",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat"
     }
-    let { open, newPositionStyle, oldPosition } = this.state;
-
-    console.log(oldPosition);
 
     return (
       <div className="photo-tile-container">
-        <div className="photo-tile" style={( open ? newPositionStyle : {} )} onClick={ this.handleClick }>
-          <div className="photo-container">
-            <div className="photo" style={ imageStyle }>
-            </div>
-          </div>
-          <div className="caption-container">
-            <p className="caption">{ this.props.photo.photographer }</p>
+        <div className="photo-tile-wrapper" style={ this.state.style } ref={ el => this.el = el }>
+          <div className={( open ? 'photo-tile open-photo-tile' : 'photo-tile closed-photo-tile' )} onClick={ this.handleClick }>
+            <div className="photo" style={ thumbnailStyles }></div>
+            <div className="caption">{ this.props.photo.photographer }</div>
           </div>
         </div>
       </div>
